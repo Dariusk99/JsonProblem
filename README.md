@@ -1,1 +1,6 @@
-# JsonProblem
+Klasa OrderDtoWrapper jest uniwersalną klasą do odbierania Jsona z różnymi typami OrderDto np. RollOrderDto, BeerOrderDto, PotatoOrderDto...
+
+1) Postman lub frontend wysyła do OrderController jsona z body OrderDtoWrapper{RollOrderDto...lub inneDto}
+2) OrderController odbiera uniwersalnego jsona i przekazuje go do klasy JsonOrderGetter która sprawdza warunkami if, który typ OrderDto przyszedł tym jsonem.
+3) Klasa JsonOrderGetter wywołuje odpowiedniego Mappera dla danej klasy zależnie jaki przyszedł jsonem np. jeśli w OrderDtoWrapper przyszedł RollOrderDto, to wywyołuje RollOrderMapper i z RollOrderDto robi RollOrderEntity.
+4) JsonOrderGetter zwraca do klasy OrderController encje RollOrder zrobioną z RollOrderDto i dalej idzie logika i zapisywanie danych do bazy....
